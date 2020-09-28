@@ -48,10 +48,13 @@ const questions = [
 ];
 
 function writeToFile(fileName, data) {
+    fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
 function init() {
-
+    inquirer.prompt(questions).then((res) => {
+        writeToFile('readme.md', generateMarkdown({...res}));
+    }).catch(e => console.log(e));
 }
 
 init();
