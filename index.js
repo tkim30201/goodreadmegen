@@ -1,3 +1,8 @@
+const inquirer = require('inquirer');
+const generateMarkdown = require('./generateMarkdown');
+const path = require ('path');
+const fs = require('fs');
+
 const questions = [
     {
         type: 'input',
